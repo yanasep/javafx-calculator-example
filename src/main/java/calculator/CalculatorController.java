@@ -77,6 +77,7 @@ public class CalculatorController {
         display.setText("");
         startNumber = true;
         operator = "";
+        formula.setText("");
     }
 
     @FXML
