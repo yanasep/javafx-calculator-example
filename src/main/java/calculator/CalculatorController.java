@@ -26,6 +26,10 @@ public class CalculatorController {
     @FXML
     public void processDigit(ActionEvent event) {
         String digitPressed = ((Button) event.getSource()).getText();
+
+        if (digitPressed.equals(".") && display.getText().contains("."))
+            return;
+
         System.out.println(digitPressed);
         if (startNumber || display.getText().equals("0")) {
             display.setText(digitPressed);
@@ -37,6 +41,10 @@ public class CalculatorController {
 
     @FXML
     public void processOperator(ActionEvent event) {
+
+        if (display.getText().isEmpty())
+            return;
+
         String operatorPressed = ((Button) event.getSource()).getText();
         System.out.println(operatorPressed);
         if (operatorPressed.equals("=")) {
@@ -89,6 +97,15 @@ public class CalculatorController {
         else {
             txt = "-".concat(txt);
         }
+        display.setText(txt);
+    }
+
+    public void processDelete(ActionEvent event) {
+        String txt = display.getText();
+        if (txt.length() == 0)
+            return;
+
+        txt = txt.substring(0, txt.length() - 1);
         display.setText(txt);
     }
 }

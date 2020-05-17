@@ -44,6 +44,7 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processAC" text="AC" GridPane.columnIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="." GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processSign" text="±" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDelete" text="DEL" GridPane.columnIndex="4" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>
