@@ -43,7 +43,7 @@ public class CalculatorController {
            }
            double number2 = Double.parseDouble(display.getText());
            double result = calculator.calculate(number1, number2, operator);
-           display.setText(String.format("%.0f", result));
+           display.setText(String.format("%.5f", result));
            operator = "";
         } else {
             if (! operator.isEmpty()) {
@@ -55,4 +55,22 @@ public class CalculatorController {
         }
     }
 
+    @FXML
+    public void processAC(ActionEvent event) {
+        display.setText("");
+        startNumber = true;
+        operator = "";
+    }
+
+    @FXML
+    public void processSign(ActionEvent event) {
+        String txt  = display.getText();
+        if (txt.startsWith("-")) {
+            txt = txt.substring(1);
+        }
+        else {
+            txt = "-".concat(txt);
+        }
+        display.setText(txt);
+    }
 }
