@@ -13,7 +13,7 @@ public class CalculatorController {
 
     private Calculator calculator;
     private boolean startNumber = true;
-    private double number1;
+    private String number1Str;
     private String operator = "";
 
     @FXML
@@ -41,15 +41,28 @@ public class CalculatorController {
            if (operator.isEmpty()) {
                return;
            }
-           double number2 = Double.parseDouble(display.getText());
-           double result = calculator.calculate(number1, number2, operator);
-           display.setText(String.format("%.5f", result));
+           String number2Str = display.getText();
+           if (!number1Str.contains(".") && !number2Str.contains(".") && !operator.equals("/")) {
+               // Integer calculation
+               int number1 = Integer.parseInt(number1Str);
+               int number2 = Integer.parseInt(number2Str);
+               int result = calculator.calculateInt(number1, number2, operator);
+               display.setText(String.format("%d", result));
+           }
+           else {
+               // double calculation
+               double number1 = Double.parseDouble(number1Str);
+               double number2 = Double.parseDouble(number2Str);
+               double result = calculator.calculate(number1, number2, operator);
+               display.setText(String.format("%.5f", result));
+           }
            operator = "";
+
         } else {
             if (! operator.isEmpty()) {
                 return;
             }
-            number1 = Double.parseDouble(display.getText());
+            number1Str = display.getText();
             operator = operatorPressed;
             startNumber = true;
         }
