@@ -10,6 +10,8 @@ public class CalculatorController {
 
     @FXML
     private TextField display;
+    @FXML
+    private TextField formula;
 
     private Calculator calculator;
     private boolean startNumber = true;
@@ -56,6 +58,7 @@ public class CalculatorController {
                double result = calculator.calculate(number1, number2, operator);
                display.setText(String.format("%.5f", result));
            }
+           formula.setText(String.format("%s %s %s %s", number1Str, operator, number2Str, "="));
            operator = "";
 
         } else {
@@ -65,6 +68,7 @@ public class CalculatorController {
             number1Str = display.getText();
             operator = operatorPressed;
             startNumber = true;
+            formula.setText(String.format("%s %s", number1Str, operator));
         }
     }
 

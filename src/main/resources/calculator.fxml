@@ -9,6 +9,7 @@
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <children>
+      <TextField fx:id="formula" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" text="" style="-fx-background-color: #e9e9e9;"/>
       <TextField fx:id="display" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" text="0" />
       <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
@@ -40,9 +41,9 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="0" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" style="-fx-background-color: lightgreen;" text="=" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="AC" onAction="#processAC" GridPane.columnIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processAC" text="AC" GridPane.columnIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="." GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="&#177;" onAction="#processSign" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processSign" text="±" GridPane.columnIndex="4" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
