@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.math.BigDecimal;
+
 public class CalculatorController {
 
     @FXML
@@ -52,20 +54,10 @@ public class CalculatorController {
                return;
            }
            String number2Str = display.getText();
-           if (!number1Str.contains(".") && !number2Str.contains(".") && !operator.equals("/")) {
-               // Integer calculation
-               int number1 = Integer.parseInt(number1Str);
-               int number2 = Integer.parseInt(number2Str);
-               int result = calculator.calculateInt(number1, number2, operator);
-               display.setText(String.format("%d", result));
-           }
-           else {
-               // double calculation
-               double number1 = Double.parseDouble(number1Str);
-               double number2 = Double.parseDouble(number2Str);
-               double result = calculator.calculate(number1, number2, operator);
-               display.setText(String.format("%.5f", result));
-           }
+            var num1 = new BigDecimal(number1Str);
+            var num2 = new BigDecimal(number2Str);
+            var result = calculator.calculate(num1, num2, operator);
+            display.setText(result.toString());
            formula.setText(String.format("%s %s %s %s", number1Str, operator, number2Str, "="));
            operator = "";
 
